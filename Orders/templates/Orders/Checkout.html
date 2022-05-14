@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static  'Orders/css/Checkout.css' %}">
+    <title>Checkout Page</title>
+</head>
+<body>
+
+    <header>
+        <h1 class="logo" ><a href="{% url 'index' %}" style="text-decoration: none;color: white">Continue Shopping</a></h1>
+
+    </header>
+
+
+    <div class="form-container">
+        <h2 class="form-title">Payment Details</h2>
+        <h2 class="form-title">Pay: Rs  {{ bill }}</h2>
+        <form action="" class="checkout-form">
+            <div class="input-line">
+                <label for="name">Name on card</label>
+                <input type="text" name="name" id="name" placeholder="Your name and surname">
+            </div>
+            <div class="input-line">
+                <label for="name">Card number</label>
+                <input type="text" name="name" id="name" placeholder="1111-2222-3333-4444">
+            </div>
+            <div class="input-container">
+                <div class="input-line">
+                    <label for="name">Expiring Date</label>
+                    <input type="text" name="name" id="name" placeholder="09-21">
+                </div>
+                <div class="input-line">
+                    <label for="name">CVC</label>
+                    <input type="text" name="name" id="name" placeholder="***">
+                </div>
+            </div>
+        </form>
+            <button onclick="Thanks()"><a href="{% url 'index' %}" style="text-decoration: none;color: white; font-size: 20px">Confirm Purchased</a></button>
+    </div>
+
+
+<script>
+    function Thanks(){
+        alert("Payment Recevied")
+        alert("Thanks!!")
+    }
+</script>
+</body>
+</html>

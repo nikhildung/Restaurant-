@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link href="{% static 'Orders/css/Login.css' %}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="wrapper">
+        <div class="title"><span>Login Form</span></div>
+        <form action="#" method="post">
+            {% csrf_token %}
+            <div class="row">
+                <label>Username</label>
+                <input type="text" name="username" placeholder="username">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="*********">
+            </div>
+
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="row button">
+                <button type="submit" class="btn-info">Login</button>
+            </div>
+            {% if message %}
+                <h5>{{ message }}</h5>
+            {% endif %}
+            <div class="signup-link">Not a member? <a href="{% url 'Register' %}">Signup now</a></div>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>

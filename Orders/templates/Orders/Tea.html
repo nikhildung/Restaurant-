@@ -1,0 +1,36 @@
+{% extends 'Orders/Home.html' %}
+{% block Title %} Tea Page
+{% endblock %}
+{% block Content %}
+    <br>
+    <hr>
+    <h2 class="menu" style="text-align: center;">OUR TEA'S</h2>
+    <hr>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for item in products %}
+
+
+            <div class="col">
+                <div class="card">
+                    <img src="/media/{{ item.product_image }}" class="card-img-top" alt="..." id="Img"
+                         style="height: 200px;width: 200px">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.name }}</h5>
+                        <div class="form-check">
+
+                            <label class="form-check-label" for="flexRadioDefault1">
+
+                                Rs: {{ item.selling_price }}
+                            </label>
+                        </div>
+                        <input type="hidden" name="prod_id" value={{ item.id }}>
+                        <button class="btn btn-warning update-cart" data-product="{{ item.id }}" data-action="add">Add
+                            To Cart
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
